@@ -5,15 +5,35 @@ public class PasswordValidator {
     /**
      * คุณจะต้องเขียน Javadoc ที่สมบูรณ์ที่นี่ในอนาคต
      * เพื่ออธิบายกฎการทำงานของเมธอด
+     * @param password string ที่ต้องการตรวจสอบ
+     * @return PassswordStringth INVALID อื่นๆ
      */
-    // TODO: แก้ไข return type ของเมธอดนี้ให้ถูกต้อง
-    public static void validate(String password) { // Function Type ให้เป็น PasswordStrength 
+    public static PasswordStrength validate(String password) { // Function Type ให้เป็น PasswordStrength 
+        int minLength = 8;
+        boolean isLowerCase = false,isUperCase = false;
+        if(password==null || password.length()<minLength)
+            return PasswordStrength.INVALID;
+
         
-        // ส่วนของ Implementation ที่คุณต้องเขียน
-        // ...
-        
-        int minLength = 8 // TODO: มีอะไรขาดหายไปที่บรรทัดนี้?
-        
-        return null ; // TODO: การคืนค่านี้ถูกต้องหรือไม่?
+        for(char c : password.toCharArray()){
+            if(Character.isLowerCase(c)){
+                isLowerCase = true;
+            }
+        }
+        for(char c : password.toCharArray()){
+            if(Character.isUpperCase(c)){
+                isUperCase = true;
+            }
+        }
+        if(isLowerCase == true && isUperCase == true){
+            return PasswordStrength.MEDIUM;
+        }
+         if(isLowerCase == true || isUperCase == true){
+            return PasswordStrength.WEAK;
+        } 
+        if(isLowerCase == false && isUperCase == false){
+            return PasswordStrength.STRONG;
+        }
+        return PasswordStrength.STRONG;
     }
 }
