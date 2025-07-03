@@ -19,28 +19,28 @@ public class PasswordValidatorTest{
         if (result2 == PasswordStrength.WEAK) {
             System.out.println("Test Case 2 : "+pw+" : Passed: All LowerCase password is WEAK.");
         } else {
-            System.out.println("Test Case 1 : "+pw+" : FAILED: Expected WEAK but got " + result2);
+            System.out.println("Test Case 2 : "+pw+" : FAILED: Expected WEAK but got " + result2);
         }
         pw = "AAAAAAAA";
         PasswordStrength result3 = PasswordValidator.validate(pw);
         if (result3 == PasswordStrength.WEAK) {
-            System.out.println("Test Case 2 : "+pw+" : Passed: All UpperCase password is WEAK.");
+            System.out.println("Test Case 3 : "+pw+" : Passed: All UpperCase password is WEAK.");
         } else {
-            System.out.println("Test Case 1 : "+pw+" : FAILED: Expected WEAK but got " + result3);
+            System.out.println("Test Case 3 : "+pw+" : FAILED: Expected WEAK but got " + result3);
         }
         pw = "PooHfdDOOL";
         PasswordStrength result4 = PasswordValidator.validate(pw);
         if (result4 == PasswordStrength.MEDIUM) {
-            System.out.println("Test Case 2 : "+pw+" : Passed: All LowerCase and Uppercase password is MEDIUM.");
+            System.out.println("Test Case 4 : "+pw+" : Passed: All LowerCase and Uppercase password is MEDIUM.");
         } else {
-            System.out.println("Test Case 1 : "+pw+" : FAILED: Expected MEDIUM but got " + result4);
+            System.out.println("Test Case 4 : "+pw+" : FAILED: Expected MEDIUM but got " + result4);
         }
         pw = "!@#$%^&*";
         PasswordStrength result5 = PasswordValidator.validate(pw);
         if (result5 == PasswordStrength.STRONG) {
-            System.out.println("Test Case 2 : "+pw+" : Passed: Password is STRONG.");
+            System.out.println("Test Case 5 : "+pw+" : Passed: Password is STRONG.");
         } else {
-            System.out.println("Test Case 1 : "+pw+" : FAILED: Expected STRONG but got " + result5);
+            System.out.println("Test Case 5 : "+pw+" : FAILED: Expected STRONG but got " + result5);
         }
 
         System.out.println("--------------------------------");
